@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Samuel Wyatt Grant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0221; --surface: rgba(20, 11, 52, 0.72); --ink: #f4f1ff; --soft: #b9b4dc;
+    --rule: rgba(130, 110, 255, 0.35); --cyan: #22f0ff; --pink: #ff3df0;
+    --accent: #22f0ff; --accent-ink: #06121a; --chip: rgba(34, 240, 255, 0.12);
+    color-scheme: dark;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); scroll-behavior: smooth; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; color: var(--ink);
+    background-color: var(--bg);
+    background-image: linear-gradient(145deg, #0b0221 0%, #1d0a45 40%, #3a0a4f 62%, #04293d 100%);
+    background-attachment: fixed;
+    font: 400 16px/1.6 "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 22px; }
+  nav { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
+  nav .mark { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 17px; color: var(--cyan); text-shadow: 0 0 10px rgba(34,240,255,.7); }
+  nav a { color: var(--soft); text-decoration: none; margin-left: 18px; transition: color .2s, text-shadow .2s; }
+  nav a:hover { color: var(--cyan); text-shadow: 0 0 10px rgba(34,240,255,.8); }
+
+  .hero { padding: 54px 0 46px; border-bottom: 1px solid var(--rule); }
+  .kicker { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--pink); text-shadow: 0 0 10px rgba(255,61,240,.7); margin: 0 0 14px; }
+  h1 {
+    font-family: "Space Grotesk", sans-serif; font-weight: 700;
+    font-size: clamp(38px, 8vw, 62px); line-height: 1.04; letter-spacing: -0.02em; margin: 0 0 18px;
+    color: var(--cyan);
+    background: linear-gradient(90deg, #22f0ff, #ff3df0);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 14px rgba(34,240,255,.45));
+  }
+  .hero p.lead { font-size: 19px; color: var(--soft); max-width: 54ch; margin: 0 0 26px; }
+
+  .btn, .card, .chips li { transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background-color .2s ease; }
+  .btn:hover, .card:hover, .chips li:hover { transform: scale(1.05); }
+
+  .btn {
+    display: inline-block; padding: 11px 20px; border-radius: 999px; font-weight: 600; font-size: 15px;
+    background: var(--cyan); color: var(--accent-ink); text-decoration: none;
+    box-shadow: 0 0 16px rgba(34,240,255,.6);
+  }
+  .btn:hover { box-shadow: 0 0 26px rgba(34,240,255,.95); }
+  .btn.ghost { background: transparent; color: var(--pink); border: 1px solid var(--pink); margin-left: 8px; box-shadow: 0 0 14px rgba(255,61,240,.4); }
+  .btn.ghost:hover { box-shadow: 0 0 24px rgba(255,61,240,.85); }
+
+  section { padding: 44px 0 6px; }
+  h2 { font-family: "Space Grotesk", sans-serif; font-size: 27px; letter-spacing: -0.01em; margin: 0 0 20px; color: var(--ink); text-shadow: 0 0 14px rgba(34,240,255,.55); }
+  p { margin: 0 0 14px; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--rule); border-radius: 14px;
+    padding: 20px 22px; margin-bottom: 14px;
+    box-shadow: 0 0 14px rgba(34,240,255,.12);
+  }
+  .card:hover { border-color: var(--cyan); box-shadow: 0 0 24px rgba(34,240,255,.45); }
+  .card h3 { margin: 0; font-size: 17px; line-height: 1.3; }
+  .card .meta { color: var(--cyan); font-size: 14px; margin: 2px 0 8px; }
+  .card ul { margin: 6px 0 0; padding-left: 18px; color: var(--soft); }
+  .card li { margin-bottom: 4px; }
+
+  .feature { border-left: 4px solid var(--pink); box-shadow: 0 0 16px rgba(255,61,240,.22); }
+  .feature:hover { border-color: var(--pink); box-shadow: 0 0 28px rgba(255,61,240,.55); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+  .grid .card { margin: 0; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .chips li { background: var(--chip); color: var(--ink); border: 1px solid rgba(34,240,255,.45); padding: 6px 13px; border-radius: 999px; font-size: 14px; font-weight: 500; box-shadow: 0 0 10px rgba(34,240,255,.2); }
+  .chips li:hover { box-shadow: 0 0 18px rgba(34,240,255,.7); }
+  .skillrow { margin-bottom: 18px; }
+  .skillrow h3 { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--pink); margin: 0 0 10px; }
+
+  .contact { text-align: center; padding: 54px 0 60px; }
+  .contact p { color: var(--soft); max-width: 44ch; margin: 0 auto 22px; }
+  footer { border-top: 1px solid var(--rule); padding: 20px 0 28px; color: var(--soft); font-size: 13px; text-align: center; }
+
+  @media (max-width: 560px) {
+    nav a { margin-left: 12px; }
+    .btn.ghost { margin: 10px 0 0; }
+    .hero { padding-top: 34px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btn, .card, .chips li { transition: none; }
+    .btn:hover, .card:hover, .chips li:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <span class="mark">S. W. Grant</span>
+    <div><a href="#about">About</a><a href="#experience">Experience</a><a href="#leadership">Leadership</a><a href="#contact">Contact</a></div>
+  </nav>
+
+  <header class="hero">
+    <p class="kicker">Woodside High School · Class of 2027</p>
+    <h1>Samuel Wyatt Grant</h1>
+    <p class="lead">A high school senior who gets things done: elected club leader, summer infrastructure intern, and the student who petitioned his way to a new class.</p>
+    <a class="btn" href="#contact">Get in touch</a><a class="btn ghost" href="#experience">See my work</a>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>I’m a senior at Woodside High School who likes building things and seeing them through, whether that’s a petition, a fundraiser, or a flooded basement cleanup. I write Java and JavaScript, speak English and Latin, and care about doing the job right the first time.</p>
+    <p>Outside of school I train regularly and played soccer for ten seasons, from kindergarten through freshman year.</p>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="card feature">
+      <h3>Summer Intern, Infrastructure &amp; Transportation</h3>
+      <div class="meta">Summer 2024</div>
+      <ul>
+        <li>Trained directly under senior engineers and project staff on active projects.</li>
+        <li>Saw how professional work moves from planning to execution.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Flood Response Volunteer</h3>
+      <div class="meta">Neighborhood homes · Seasonal</div>
+      <ul>
+        <li>Work with my father when flooding hits neighbors’ houses and our own.</li>
+        <li>Heavy lifting through long shifts, plus basic plumbing repairs.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Pet Sitter</h3>
+      <div class="meta">Self-employed · Ongoing</div>
+      <ul><li>Trusted by repeat neighbors with their pets and their homes while they travel.</li></ul>
+    </div>
+  </section>
+
+  <section id="leadership">
+    <h2>Leadership &amp; Clubs</h2>
+    <div class="card feature">
+      <h3>Student Petition Organizer</h3>
+      <div class="meta">2025</div>
+      <ul><li>Collected 100+ signatures, mostly from people I didn’t know. The school approved the new class.</li></ul>
+    </div>
+    <div class="grid">
+      <div class="card"><h3>Secretary</h3><div class="meta">Galápagos Island Club</div><p style="margin:0;color:var(--soft);font-size:15px">Records and communication for a fundraising club supporting conservation.</p></div>
+      <div class="card"><h3>Vice President</h3><div class="meta">Writing Club · 2025–2026</div><p style="margin:0;color:var(--soft);font-size:15px">Ran meetings and supported members’ writing.</p></div>
+    </div>
+    <p style="margin-top:16px;color:var(--soft);font-size:15px">Also a member of the Latin Club, Kingdom Club, and Super Smash Bros. Club.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skillrow"><h3>Programming</h3><ul class="chips"><li>Java</li><li>JavaScript</li></ul></div>
+    <div class="skillrow"><h3>Languages</h3><ul class="chips"><li>English</li><li>Latin</li></ul></div>
+    <div class="skillrow"><h3>Practical</h3><ul class="chips"><li>Basic plumbing</li><li>Heavy manual work</li><li>Written communication</li><li>Public outreach</li></ul></div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Let’s talk</h2>
+    <p>Looking for a first job where I can work hard and keep learning. The best way to reach me is email.</p>
+    <a class="btn" href="mailto:s.grant1781@gmail.com">s.grant1781@gmail.com</a>
+  </section>
+
+  <footer>© 2026 Samuel Wyatt Grant</footer>
+</div>
+</body>
+</html>
